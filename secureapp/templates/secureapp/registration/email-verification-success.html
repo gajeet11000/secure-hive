@@ -1,0 +1,39 @@
+
+{% include 'secureapp/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+
+<body style="background-color: #304D30;"></body>
+    <br>
+
+    <div class="container shadow-md p-5 form-layout" style="background-color: #7F9F80;">
+
+        <div class="text-center">
+            
+            <i class="fa fa-check fa-3x text-success" aria-hidden="true"></i>
+
+            <br> <br>
+   
+
+            <h5> <strong> Your account is now active! </strong> </h5>
+
+            <hr>
+
+            <p> Please proceed to <a href="{% url 'two_factor:login' %}" class="btn cust-btn">Login</a> </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+
+{% endblock %}

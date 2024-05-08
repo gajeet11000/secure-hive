@@ -1,0 +1,99 @@
+{% include 'secureapp/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+    
+
+<body>
+
+   
+            <!-- Title -->
+            <div class="row">
+
+                <div class="col-lg-6">
+               
+                    <h1 class="big-heading">Join SecureHive and take control of your digital security!</h1>
+
+
+                    <a href="{% url 'register' %}" class="btn btn-light btn-lg download-button">Register</a>
+
+
+                    <a href="{% url 'two_factor:login' %}" class="btn btn-outline-light btn-lg download-button">Login</a>
+        
+
+                </div>
+
+                <div class="col-lg-6">
+                    
+                    <img class="title-image" src="{% static 'media/image.png' %}" alt="SecureX Mockup">
+                    
+                </div>
+
+            </div>
+        
+    </section>
+
+    <!-- Features -->
+    <section id="features" style="background-color: #BFD8AF ;">
+        <div class="row" >
+            <div class="featbox col-lg-3">
+              
+                <img class="feature-image" src="{% static 'media/mfa.png' %}" alt="">
+
+                <h3>Multi-Factor Authentication</h3>
+                <p>Enhance security with MFA.</p>
+            </div>
+            <div class="featbox col-lg-3">
+              
+                <img class="feature-image" src="{% static 'media/clock2.png' %}" alt="">
+                <h3>Session Timeout</h3>
+                <p>Automatically log out inactive sessions.</p>
+            </div>
+
+            <div class="featbox col-lg-3">
+               
+                <img class="feature-image" src="{% static 'media/rate.png' %}" alt="">
+                <h3>Rate Limiting</h3>
+                <p>Prevent abuse with rate limiting.</p>
+            </div>
+
+            <div class="featbox col-lg-3">
+                <img class="feature-image" src="{% static 'media/oauth.jpg' %}" alt="">
+                <h3>OAuth Integration</h3>
+                <p>Securely integrate with third-party services using OAuth.</p>
+            </div>
+            
+
+
+
+
+
+
+
+        </div>
+    </section>
+
+    <footer id="footer">
+
+        <i class="social-icon fab fa-facebook fa-2x"></i>
+        <i class="social-icon fab fa-instagram fa-2x"></i>
+        <i class="social-icon fab fa-twitter fa-2x"></i>
+    
+    
+        <p>© Copyright SecureHive</p>
+        <p>Made with ❤️ by Haniya</p>
+    
+      </footer>
+    
+    
+
+   
+
+</body>
+
+{% endblock content %}
+
+
+

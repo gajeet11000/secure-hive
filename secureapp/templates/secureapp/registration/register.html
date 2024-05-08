@@ -1,0 +1,92 @@
+
+{% include 'secureapp/base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+
+
+{% block content %}
+
+<body>
+
+    <title> SecureX | Register </title>
+
+    <br>
+
+    <div class="container shadow-md p-5 form-layout" style="background-color: #7F9F80;">
+
+        <h3> Create your account </h3>
+
+        <h5> Secure your account today! </h5>
+
+        <br> 
+
+
+        <form method="POST" autocomplete="off">
+
+            {% csrf_token %}
+
+
+            {{form.username|as_crispy_field}}
+
+            <br>
+
+
+            {{form.email|as_crispy_field}}
+
+            <br> 
+
+
+            {{form.password1|as_crispy_field}}
+
+            <br> 
+
+
+            {{form.password2|as_crispy_field}}
+
+            <br> 
+
+
+            {{form.captcha}}
+
+            <br> 
+            
+
+            <button type="submit" class="btn cust-btn btn-log w-100 btn-block p-3"> Create your account </button>
+
+
+        </form>
+
+        <br>
+
+        <div class="text-center">
+
+            <i class="fa-brands fa-google"></i>
+            <a style="color: #304D30;" href="#">Sign up with Google</a>
+
+            </div>
+
+            <br>
+
+        <div class="text-center">
+
+            <a style="color: #304D30;" href="{% url 'two_factor:login' %}"> Already have an account? </a>
+
+        </div>
+
+
+    </div>
+
+
+    <br>
+
+
+
+</body>
+
+{% endblock %}
+
+
+

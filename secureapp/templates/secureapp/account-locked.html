@@ -1,0 +1,46 @@
+{% include 'secureapp/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+
+<body style="background-color: #304D30;"></body>
+    
+
+<div class="container shadow-md p-5 form-layout" style="background-color: #7F9F80;">
+    <div class="text-center"> 
+
+        <h3 style="text-align: center;">Account Locked</h3>
+
+        <br>
+
+        <i class="fa-solid fa-lock"></i>
+
+        <br>
+       
+
+        <p>Your account has been blocked due to multipe failed login attempts.</p>
+
+        <hr>
+
+        <p>You may try again to login after expiry period.</p>
+
+    
+        
+        <!-- Center content -->
+        <a class="btn  navbar-btn cust-btn  text-white rounded" type="button" href="{% url 'index' %}">Return to homepage</a>
+
+        <br>
+        <br>
+        
+       
+    </div>
+</div>
+
+
+    
+{% endblock %}
+    

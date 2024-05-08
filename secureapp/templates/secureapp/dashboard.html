@@ -1,0 +1,49 @@
+{% include "secureapp/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<body style="background-color: #304D30;">
+
+    <h2 style="text-align: center;">Welcome to your dashboard, {{user}}!</h2>
+
+    <br>
+    <br>
+
+    <div class="container shadow-md p-5 form-layout" style="background-color: #7F9F80;">
+        <h3 style="text-align: center;">Manage your profile</h3>
+    
+        <br>
+    
+        <div class="text-center"> <!-- Center content -->
+            <a class="btn  navbar-btn cust-btn  text-white rounded" type="button" href="{% url 'profile-management' %}">Profile management</a>
+            <br>
+            <br>
+            <a class="btn btn-danger navbar-btn text-white rounded" type="button" href="{% url 'user-logout' %}">Logout</a>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container shadow-md p-5 form-layout" style="background-color: #7F9F80;">
+        <div class="text-center"> 
+
+            <h3 style="text-align: center;">Multi-factor authentication</h3>
+
+            <br>
+            
+            <!-- Center content -->
+            <a class="btn  navbar-btn cust-btn  text-white rounded" type="button" href="{% url 'two_factor:profile' %}">MFA settings</a>
+
+            <br>
+            <br>
+            
+            <p>Enable multi-factor authentication for added security</p>
+        </div>
+    </div>
+
+    {{ redirect_to_login_immediately }}
+
+</body>
+
+{% endblock content %}
