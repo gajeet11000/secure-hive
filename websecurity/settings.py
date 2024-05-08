@@ -19,7 +19,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+ALLOWED_HOSTS = ["*"]
+
+#CSRF_TRUSTED_ORIGINS = []
 
 
 
@@ -46,15 +50,15 @@ INSTALLED_APPS = [
    
     'two_factor',
 
-     'axes',
+    'axes',
+    
+    'storages',
 
     
 
    
     
 ]
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-
 
 RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
@@ -142,10 +146,30 @@ WSGI_APPLICATION = 'websecurity.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# RDS / PostgreSQL database configuration
+
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': env('DB_NAME'),
+
+        'USER': env('DB_USER'),
+
+        'PASSWORD': env('DB_PASSWORD'),
+
+        'HOST': env('DB_HOST'),
+
+        'PORT': '5432',
     }
 }
 
@@ -273,5 +297,35 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 '''
 
 
+ #AWS configuration
+
+
+'''
+
+
+# Django 4.2 > Storage configuration for Amazon S3
+
+'''
+
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME') # - Enter your S3 bucket name HERE
+
+
+STORAGES = {
+
+    # Media file (image) management
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+    
+    # CSS and JS file management
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+        
+    },
+}
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_FILE_OVERWRITE = False
 
 
